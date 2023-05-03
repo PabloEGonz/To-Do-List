@@ -1,7 +1,7 @@
 import './style.css';
 import dots from './images/icon.jpg';
 // eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-import checkBox from './images/checkBox.png';
+import checkBox from './images/checkbox.png';
 import './images/enter.jpg';
 
 const tasks = [
