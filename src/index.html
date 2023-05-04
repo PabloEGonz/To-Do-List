@@ -9,13 +9,12 @@
   <body>
     <div class="container">
       <p class="title">Today's To Do</p>
-      <div class="input-container">
-        <input class="add" placeholder="Add to your list..." />
-        <img src="./images/enter.jpg" alt="" />
-      </div>
-      <ul class="task-container">
-      </ul>
-      <button class="remove">Clear all completed</button>
+      <form class="input-container">
+        <input class="add" type="text" placeholder="Add to your list..." />
+        <button id="submitBtn" type="submit"></button>
+      </form>
+      <ul class="task-container"></ul>
+      <button type="submit" class="remove">Clear all completed</button>
     </div>
   </body>
 </html>
