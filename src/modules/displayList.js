@@ -71,7 +71,6 @@ const checked = document.getElementsByClassName('checkbox');
 const editTask = () => {
     for (let i = 0; i < optionBtn.length; i++) {
         taskDescription[i].addEventListener('dblclick', () => {
-            removeSingle();
             taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`
             optionBtn[i].src = trashIcon;
             listElem[i].classList.add('edit');
@@ -82,20 +81,7 @@ const editTask = () => {
                 setTimeout(update, 222);
             });
         })
-    }
 
-    const removeSingle = () => {
-        for (let i = 0; i < optionBtn.length; i++) {
-            optionBtn[i].addEventListener('click', () => {
-                if (optionBtn[i].src !== dots) {
-                    tasks.splice(i, 1);
-                    update();
-                }
-            })
-        }
-    }
-
-    for (let i = 0; i < checked.length; i++) {
         checked[i].addEventListener('click', () => {
             if (tasks[i].completed === false) {
                 taskDescription[i].classList.add('crossed');
@@ -109,6 +95,12 @@ const editTask = () => {
             setLocalStorage();
         })
 
+        optionBtn[i].addEventListener('click', () => {
+            if (optionBtn[i].src !== dots) {
+                tasks.splice(i, 1);
+                update();
+            }
+        })
     }
 }
 const removeBtn = document.querySelector('.remove');
@@ -116,8 +108,10 @@ const removeBtn = document.querySelector('.remove');
 const deleteAll = () => {
     removeBtn.addEventListener('click', () => {
         tasks.forEach((el, index) => {
+            let completedTasks = []
             if (el.completed) {
-                tasks.splice(index, 1);
+                // completedTasks.push(el.index);
+                tasks.splice(el.index, 1);
                 update();
             }
         });
