@@ -25,7 +25,7 @@ img {
 
 .input-container {
   border: 1px solid #e8e0e0;
-  padding: 2.5%;
+  padding: 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,10 +34,24 @@ img {
 .add {
   border: none;
   font-size: 15px;
+  width: 90%;
+  background-color: inherit;
 }
 
-.input-container img {
-  width: 20px;
+.add:focus-visible {
+  outline: none;
+}
+
+.edit {
+  background-color: yellow;
+}
+
+.input-container button {
+  padding: 12px;
+  border: none;
+  background-image: url("./images/enter.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .task-container {
@@ -62,13 +76,6 @@ img {
 
 .list .options {
   justify-self: flex-end;
-}
-
-.list input {
-  scale: 1.2;
-  border: 3px solid red;
-  background-color: blue;
-  outline: none;
 }
 
 .remove {
