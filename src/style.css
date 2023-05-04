@@ -43,7 +43,7 @@ img {
 }
 
 .edit {
-  background-color: yellow;
+  background-color: #f7f782c4;
 }
 
 .input-container button {
@@ -83,4 +83,8 @@ img {
   padding: 3%;
   border: 1px solid #e8e0e0;
   border-radius: 0 0 10px 10px;
+}
+
+.crossed {
+  text-decoration-line: line-through;
 }
