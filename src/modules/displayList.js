@@ -107,14 +107,13 @@ const removeBtn = document.querySelector('.remove');
 
 const deleteAll = () => {
     removeBtn.addEventListener('click', () => {
-        tasks.forEach((el, index) => {
-            let completedTasks = []
-            if (el.completed) {
-                // completedTasks.push(el.index);
-                tasks.splice(el.index, 1);
-                update();
+
+        for (let i = tasks.length - 1; i >= 0; i--) {
+            if (tasks[i].completed) {
+                tasks.splice(i, 1);
             }
-        });
+            update();
+        }
     })
 }
 deleteAll();
