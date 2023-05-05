@@ -28,9 +28,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 My First Capstone Project <a name="about-project"></a>
+# 📖 To Do List <a name="about-project"></a>
 
-This is a website where you can save your favorites books.
+This is a webpage you can use to track your tasks.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -128,7 +128,7 @@ Open index.html using live server extention.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Add fuction to add and remove tasks.
+- [ ] Add drop and drag functionality.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
