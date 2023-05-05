@@ -53,7 +53,7 @@ const removeBtn = document.querySelector('.remove');
 
 const editTask = () => { /* eslint-disable no-loop-func */
     for (let i = 0; i < optionBtn.length; i += 1) {
-        taskDescription[i].addEventListener('click', () => {
+        taskDescription[i].addEventListener('dblclick', () => {
             taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`;
             optionBtn[i].src = trashIcon;
             listElem[i].classList.add('edit');
@@ -61,10 +61,9 @@ const editTask = () => { /* eslint-disable no-loop-func */
             editInput.focus();
             editInput.addEventListener('blur', () => {
                 tasks[i].description = editInput.value;
-                setTimeout(displayList, 522);
+                setTimeout(displayList, 222);
                 setTimeout(editTask, 222);
             });
-            
         });
 
         checked[i].addEventListener('click', () => {
