@@ -48,8 +48,8 @@ const listElem = document.getElementsByClassName('list');
 const checked = document.getElementsByClassName('checkbox');
 
 const removeBtn = document.querySelector('.remove');
-
-
+const editForm = document.querySelector('#edit-form');
+const editInput = document.querySelector('#edit-input');
 
 const editTask = () => { /* eslint-disable no-loop-func */
     for (let i = 0; i < optionBtn.length; i += 1) {
@@ -58,43 +58,39 @@ const editTask = () => { /* eslint-disable no-loop-func */
             optionBtn[i].src = trashIcon;
             listElem[i].classList.add('edit');
             const editInput = document.querySelector('#edit-input');
-           // editInput.focus();
-            editInput.addEventListener('focus', () => {
-                output(i);
+            editInput.focus();
+            editInput.addEventListener('change', () => {
+                tasks[i].description = editInput.value;
+                setLocalStorage();
             })
-            const output = (pos) => {
-                editInput.addEventListener('focusout', () => {
-                    tasks[pos].description = editInput.value;
-                    // setTimeout(displayList, 122);
-                    setTimeout(editTask, 222);
-                    displayList();
-                    // editTask();
-                });
-            }
+            editInput.addEventListener('blur', () => {
+                setTimeout(displayList, 232);
+                setTimeout(editTask, 232);
+            });
 
         });
 
-            checked[i].addEventListener('click', () => {
-                if (tasks[i].completed === false) {
-                    taskDescription[i].classList.add('crossed');
-                    checked[i].src = completeIcon;
-                    tasks[i].completed = true;
-                } else {
-                    taskDescription[i].classList.remove('crossed');
-                    checked[i].src = checkBox;
-                    tasks[i].completed = false;
-                }
-                setLocalStorage();
-            });
+        checked[i].addEventListener('click', () => {
+            if (tasks[i].completed === false) {
+                taskDescription[i].classList.add('crossed');
+                checked[i].src = completeIcon;
+                tasks[i].completed = true;
+            } else {
+                taskDescription[i].classList.remove('crossed');
+                checked[i].src = checkBox;
+                tasks[i].completed = false;
+            }
+            setLocalStorage();
+        });
 
-            optionBtn[i].addEventListener('click', () => {
-                if (optionBtn[i].src !== dots) {
-                    tasks.splice(i, 1);
-                    displayList();
-                    setLocalStorage();
-                    editTask();
-                }
-            });
+        optionBtn[i].addEventListener('click', () => {
+            if (optionBtn[i].src !== dots) {
+                tasks.splice(i, 1);
+                displayList();
+                setLocalStorage();
+                editTask();
+            }
+        });
     }
 };
 editTask();
