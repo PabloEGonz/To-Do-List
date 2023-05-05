@@ -13,14 +13,24 @@
   box-shadow: 0 4px 30px 10px rgba(0, 0, 0, 0.2);
 }
 
-.title {
-  padding: 2%;
+img {
+  width: 18px;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid #e8e0e0;
+  padding: 2%;
+}
+.title {
   margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-img {
-  width: 15px;
+.reload {
+  width: 20px;
 }
 
 .input-container {
@@ -33,13 +43,18 @@ img {
 
 .add {
   border: none;
-  font-size: 15px;
+  font-size: 16px;
   width: 90%;
   background-color: inherit;
 }
 
 .add:focus-visible {
   outline: none;
+}
+
+.checkbox {
+  width: 20px;
+  margin: auto;
 }
 
 .edit {
@@ -63,7 +78,7 @@ img {
 .list {
   list-style-type: none;
   border: 1px solid #e8e0e0;
-  padding: 2.5%;
+  padding: 2%;
   display: grid;
   grid-template-columns: 6% 1fr 5%;
   grid-template-rows: 1fr;
@@ -71,7 +86,7 @@ img {
 }
 
 .list p {
-  margin: 0;
+  margin: 0 0 0 2%;
 }
 
 .list .options {
