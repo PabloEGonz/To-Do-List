@@ -16,6 +16,7 @@
 img {
   width: 18px;
 }
+
 .title-container {
   display: flex;
   align-items: center;
@@ -23,6 +24,7 @@ img {
   border: 1px solid #e8e0e0;
   padding: 2%;
 }
+
 .title {
   margin: 0;
   font-size: 1.1rem;

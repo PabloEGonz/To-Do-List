@@ -3,7 +3,7 @@ import checkBox from '../images/checkbox.png';
 import dots from '../images/threeDots.png';
 
 import trashIcon from '../images/trash.png';
-import { Status } from './checkbox';
+import { Status } from './checkbox.js';
 
 let tasks = [];
 const setLocalStorage = () => {
@@ -67,11 +67,11 @@ const editTask = () => { /* eslint-disable no-loop-func */
     });
 
     checked[i].addEventListener('click', () => {
-      let checkStatus = new Status(tasks[i].completed);
+      const checkStatus = new Status(tasks[i].completed);
       if (!tasks[i].completed) {
-        tasks[i].completed = checkStatus.on()
+        tasks[i].completed = checkStatus.on();
       } else {
-        tasks[i].completed = checkStatus.off()
+        tasks[i].completed = checkStatus.off();
       }
       displayList();
       setLocalStorage();
@@ -101,7 +101,6 @@ const addList = () => {
       completed: new Status().state,
       index: tasks.length,
     };
-    console.log(newTask)
     tasks.push(newTask);
     setLocalStorage();
     displayList();
@@ -126,11 +125,9 @@ const reload = () => {
     setTimeout(displayList, 100);
     setTimeout(editTask, 100);
   });
-
-}
+};
 reload();
 
-
 export {
-  displayList, addList, deleteAll, editTask, reload
+  displayList, addList, deleteAll, editTask, reload,
 };
