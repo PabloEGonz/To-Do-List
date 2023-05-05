@@ -8,9 +8,12 @@
   <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
   <body>
     <div class="container">
-      <p class="title">Today's To Do</p>
+      <div class="title-container">
+        <p class="title">Today's To Do</p>
+        <img class="reload" src="./images/reload.png" alt="reload-button" />
+      </div>
       <form class="input-container">
-        <input class="add" type="text" placeholder="Add to your list..." />
+        <input class="add" type="text" placeholder="Add to your list..." required/>
         <button id="submitBtn" type="submit"></button>
       </form>
       <ul class="task-container"></ul>
