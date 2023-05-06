@@ -7,6 +7,7 @@ import {
   displayList, addList, deleteAll, editTask, reload,
 } from './modules/displayList.js';
 
+import { completeIcon, checkBox, dots, trashIcon } from './modules/displayList.js';
 displayList();
 addList();
 editTask();
