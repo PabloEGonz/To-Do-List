@@ -3,6 +3,7 @@ import checkBox from '../images/checkbox.png';
 import dots from '../images/threeDots.png';
 
 import trashIcon from '../images/trash.png';
+import { Status } from './checkbox.js';
 
 let tasks = [];
 const setLocalStorage = () => {
@@ -66,16 +67,15 @@ const editTask = () => { /* eslint-disable no-loop-func */
     });
 
     checked[i].addEventListener('click', () => {
-      if (tasks[i].completed === false) {
-        taskDescription[i].classList.add('crossed');
-        checked[i].src = completeIcon;
-        tasks[i].completed = true;
+      const checkStatus = new Status(tasks[i].completed);
+      if (!tasks[i].completed) {
+        tasks[i].completed = checkStatus.on();
       } else {
-        taskDescription[i].classList.remove('crossed');
-        checked[i].src = checkBox;
-        tasks[i].completed = false;
+        tasks[i].completed = checkStatus.off();
       }
+      displayList();
       setLocalStorage();
+      editTask();
     });
 
     optionBtn[i].addEventListener('click', () => {
@@ -98,13 +98,14 @@ const addList = () => {
     e.preventDefault();
     const newTask = {
       description: addInput.value,
-      completed: false,
+      completed: new Status().state,
       index: tasks.length,
     };
     tasks.push(newTask);
     setLocalStorage();
     displayList();
     editTask();
+    addInput.value = '';
   });
 };
 
@@ -118,6 +119,15 @@ const deleteAll = () => {
 };
 deleteAll();
 
+const reload = () => {
+  document.querySelector('.reload').addEventListener('click', () => {
+    listContainer.innerHTML = '';
+    setTimeout(displayList, 100);
+    setTimeout(editTask, 100);
+  });
+};
+reload();
+
 export {
-  displayList, addList, deleteAll, editTask,
+  displayList, addList, deleteAll, editTask, reload,
 };
