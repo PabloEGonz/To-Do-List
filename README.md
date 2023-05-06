@@ -63,7 +63,7 @@ This is a webpage you can use to track your tasks.
 
 > You can find the Live demo at:
 
-- Coming soon.
+- https://pabloegonz.github.io/To-Do-List/dist/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
