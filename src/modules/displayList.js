@@ -1,5 +1,5 @@
 import completeIcon from '../images/completed.png';
-import checkBox from '../images/checkbox.png';
+import checkBox from '../images/checkBox.png';
 import dots from '../images/threeDots.png';
 import trashIcon from '../images/trash.png';
 import { Status } from './checkbox.js';
