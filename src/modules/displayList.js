@@ -1,11 +1,9 @@
 import completeIcon from '../images/completed.png';
 import checkBox from '../images/checkbox.png';
 import dots from '../images/threeDots.png';
-
 import trashIcon from '../images/trash.png';
 import { Status } from './checkbox.js';
 
-export {completeIcon, checkBox, dots, trashIcon }
 let tasks = [];
 const setLocalStorage = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
