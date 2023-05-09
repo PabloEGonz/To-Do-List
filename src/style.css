@@ -67,7 +67,7 @@ img {
 .input-container button {
   padding: 12px;
   border: none;
-  background-image: url("./images/enter.jpg");
+
   background-size: contain;
   background-repeat: no-repeat;
 }

@@ -117,5 +117,5 @@ const reload = () => {
 reload();
 
 export {
-  displayList, addList, deleteAll, editTask, reload,
+  displayList, addList, deleteAll, editTask, reload, submitBtn,
 };
