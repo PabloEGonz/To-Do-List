@@ -1,4 +1,5 @@
 import completeIcon from '../images/completed.png';
+// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
 import checkBox from '../images/checkBox.png';
 import dots from '../images/threeDots.png';
 import trashIcon from '../images/trash.png';
