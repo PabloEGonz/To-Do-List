@@ -2,12 +2,11 @@ import completeIcon from '../images/completed.png';
 import checkBox from '../images/checkBox.png';
 import dots from '../images/threeDots.png';
 import trashIcon from '../images/trash.png';
-import { Status } from './checkbox.js';
+import Status from './checkbox.js';
 
-let tasks = [];
-const setLocalStorage = () => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+const setLocalStorage = () => localStorage.setItem('tasks', JSON.stringify(tasks));
 
 const listContainer = document.querySelector('.task-container');
 
@@ -19,10 +18,9 @@ const displayList = () => {
     if (task.completed) {
       checkTask = completeIcon;
       crossed = 'crossed';
-    } else {
-      checkTask = checkBox;
-    }
-    task.index = index;
+    } else checkTask = checkBox;
+
+    task.id = index + 1;
     const list = document.createElement('li');
     list.classList.add('list');
     list.innerHTML = ` <img class='checkbox' src='${checkTask}'> <p class='task-description ${crossed}'>${task.description}</p> <img class='options' src='${dots}'> `;
@@ -31,21 +29,10 @@ const displayList = () => {
 };
 displayList();
 
-const localTasks = localStorage.getItem('tasks');
-const getLocalStorage = () => {
-  if (localTasks) {
-    tasks = JSON.parse(localTasks);
-    displayList();
-  }
-};
-getLocalStorage();
-
 const optionBtn = document.getElementsByClassName('options');
 const taskDescription = document.getElementsByClassName('task-description');
 const listElem = document.getElementsByClassName('list');
 const checked = document.getElementsByClassName('checkbox');
-
-const removeBtn = document.querySelector('.remove');
 
 const editTask = () => { /* eslint-disable no-loop-func */
   for (let i = 0; i < optionBtn.length; i += 1) {
@@ -98,7 +85,7 @@ const addList = () => {
     const newTask = {
       description: addInput.value,
       completed: new Status().state,
-      index: tasks.length,
+      id: tasks.length + 1,
     };
     tasks.push(newTask);
     setLocalStorage();
@@ -107,6 +94,7 @@ const addList = () => {
     addInput.value = '';
   });
 };
+const removeBtn = document.querySelector('.remove');
 
 const deleteAll = () => {
   removeBtn.addEventListener('click', () => {
