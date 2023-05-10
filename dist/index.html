@@ -7,17 +7,22 @@
     <title>To Do List</title>
   <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
   <body>
-    <div class="container">
-      <div class="title-container">
+    <main class="container flex">
+      <section class="title-container flex">
         <p class="title">Today's To Do</p>
-        <img class="reload" src="./images/reload.png" alt="reload-button" />
-      </div>
-      <form class="input-container">
-        <input class="add" type="text" placeholder="Add to your list..." required/>
+        <img class="reload" alt="reload-button" />
+      </section>
+      <form class="input-container flex">
+        <input
+          class="add"
+          type="text"
+          placeholder="Add to your list..."
+          required
+        />
         <button id="submitBtn" type="submit"></button>
       </form>
       <ul class="task-container"></ul>
       <button type="submit" class="remove">Clear all completed</button>
-    </div>
+    </main>
   </body>
 </html>

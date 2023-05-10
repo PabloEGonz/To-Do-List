@@ -2,8 +2,11 @@
   box-sizing: border-box;
 }
 
-.container {
+.flex {
   display: flex;
+}
+
+.container {
   flex-direction: column;
   width: 40%;
   margin: auto;
@@ -18,7 +21,6 @@ img {
 }
 
 .title-container {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #e8e0e0;
@@ -38,7 +40,6 @@ img {
 .input-container {
   border: 1px solid #e8e0e0;
   padding: 1%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -66,7 +67,6 @@ img {
 .input-container button {
   padding: 12px;
   border: none;
-  background-image: url("./images/enter.jpg");
   background-size: contain;
   background-repeat: no-repeat;
 }

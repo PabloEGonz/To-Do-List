@@ -1,11 +1,13 @@
-import './style.css';
-// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
-import './images/enter.jpg';
-import './images/reload.png';
-
 import {
-  displayList, addList, deleteAll, editTask, reload,
+  displayList, addList, deleteAll, editTask, reload, submitBtn,
 } from './modules/displayList.js';
+import './style.css';
+import enter from './images/enter.jpg';
+import reloadI from './images/reload.png';
+
+const reloadImage = document.querySelector('.reload');
+reloadImage.src = reloadI;
+submitBtn.style.backgroundImage = `url('${enter}')`;
 
 displayList();
 addList();

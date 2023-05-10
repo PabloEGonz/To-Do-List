@@ -1,4 +1,3 @@
-const current = null;
 class Status {
   constructor(state = false) {
     this.state = state;
@@ -19,4 +18,4 @@ class Status {
   }
 }
 
-export { Status, current };
+export default Status;
