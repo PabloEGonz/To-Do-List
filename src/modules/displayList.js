@@ -35,44 +35,48 @@ const taskDescription = document.getElementsByClassName('task-description');
 const listElem = document.getElementsByClassName('list');
 const checked = document.getElementsByClassName('checkbox');
 
+const onTaskDescriptionClick = (i) => {
+  taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`;
+  optionBtn[i].src = trashIcon;
+  listElem[i].classList.add('edit');
+  const editInput = document.querySelector('#edit-input');
+  editInput.focus();
+  editInput.addEventListener('change', () => {
+    tasks[i].description = editInput.value;
+    setLocalStorage();
+  });
+  editInput.addEventListener('blur', () => {
+    setTimeout(displayList, 232);
+    setTimeout(editTask, 232);
+  });
+};
+
+const onCheckedClick = (i) => {
+  const checkStatus = new Status(tasks[i].completed);
+  if (!tasks[i].completed) {
+    tasks[i].completed = checkStatus.on();
+  } else {
+    tasks[i].completed = checkStatus.off();
+  }
+  displayList();
+  setLocalStorage();
+  editTask();
+};
+
+const onOptionBtnClick = (i) => {
+  if (optionBtn[i].src !== dots) {
+    tasks.splice(i, 1);
+    displayList();
+    setLocalStorage();
+    editTask();
+  }
+};
+
 const editTask = () => {
   Array.from(optionBtn).forEach((btn, i) => {
-    taskDescription[i].addEventListener('click', () => {
-      taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`;
-      optionBtn[i].src = trashIcon;
-      listElem[i].classList.add('edit');
-      const editInput = document.querySelector('#edit-input');
-      editInput.focus();
-      editInput.addEventListener('change', () => {
-        tasks[i].description = editInput.value;
-        setLocalStorage();
-      });
-      editInput.addEventListener('blur', () => {
-        setTimeout(displayList, 232);
-        setTimeout(editTask, 232);
-      });
-    });
-
-    checked[i].addEventListener('click', () => {
-      const checkStatus = new Status(tasks[i].completed);
-      if (!tasks[i].completed) {
-        tasks[i].completed = checkStatus.on();
-      } else {
-        tasks[i].completed = checkStatus.off();
-      }
-      displayList();
-      setLocalStorage();
-      editTask();
-    });
-
-    btn.addEventListener('click', () => {
-      if (btn.src !== dots) {
-        tasks.splice(i, 1);
-        displayList();
-        setLocalStorage();
-        editTask();
-      }
-    });
+    taskDescription[i].addEventListener('click', () => onTaskDescriptionClick(i));
+    checked[i].addEventListener('click', () => onCheckedClick(i));
+    btn.addEventListener('click', () => onOptionBtnClick(i));
   });
 };
 
@@ -86,7 +90,7 @@ const addList = () => {
     e.preventDefault();
     const newTask = {
       description: addInput.value,
-      completed: new Status().state,
+      completed: false,
       id: tasks.length + 1,
     };
     tasks.push(newTask);
