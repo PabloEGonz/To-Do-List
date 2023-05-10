@@ -65,7 +65,7 @@ const onCheckedClick = (i) => {
   editTask();
 };
 
-const onOptionBtnClick = (i) => {
+const deleteItem = (i) => {
   if (optionBtn[i].src !== dots) {
     tasks.splice(i, 1);
     displayList();
@@ -79,7 +79,7 @@ const editTask = () => {
   Array.from(optionBtn).forEach((btn, i) => {
     taskDescription[i].addEventListener('click', () => onTaskDescriptionClick(i));
     checked[i].addEventListener('click', () => onCheckedClick(i));
-    btn.addEventListener('click', () => onOptionBtnClick(i));
+    btn.addEventListener('click', () => deleteItem(i));
   });
 };
 
