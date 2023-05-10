@@ -4,6 +4,7 @@ import {
 import './style.css';
 import enter from './images/enter.jpg';
 import reloadI from './images/reload.png';
+
 const reloadImage = document.querySelector('.reload');
 reloadImage.src = reloadI;
 submitBtn.style.backgroundImage = `url('${enter}')`;
