@@ -35,8 +35,8 @@ const taskDescription = document.getElementsByClassName('task-description');
 const listElem = document.getElementsByClassName('list');
 const checked = document.getElementsByClassName('checkbox');
 
-const editTask = () => { /* eslint-disable no-loop-func */
-  for (let i = 0; i < optionBtn.length; i += 1) {
+const editTask = () => {
+  Array.from(optionBtn).forEach((btn, i) => {
     taskDescription[i].addEventListener('click', () => {
       taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`;
       optionBtn[i].src = trashIcon;
@@ -65,16 +65,17 @@ const editTask = () => { /* eslint-disable no-loop-func */
       editTask();
     });
 
-    optionBtn[i].addEventListener('click', () => {
-      if (optionBtn[i].src !== dots) {
+    btn.addEventListener('click', () => {
+      if (btn.src !== dots) {
         tasks.splice(i, 1);
         displayList();
         setLocalStorage();
         editTask();
       }
     });
-  }
+  });
 };
+
 editTask();
 
 const submitBtn = document.querySelector('#submitBtn');
