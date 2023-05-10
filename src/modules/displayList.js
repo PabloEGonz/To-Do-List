@@ -47,6 +47,7 @@ const onTaskDescriptionClick = (i) => {
   });
   editInput.addEventListener('blur', () => {
     setTimeout(displayList, 232);
+    // eslint-disable-next-line no-use-before-define
     setTimeout(editTask, 232);
   });
 };
@@ -60,6 +61,7 @@ const onCheckedClick = (i) => {
   }
   displayList();
   setLocalStorage();
+  // eslint-disable-next-line no-use-before-define
   editTask();
 };
 
@@ -68,6 +70,7 @@ const onOptionBtnClick = (i) => {
     tasks.splice(i, 1);
     displayList();
     setLocalStorage();
+    // eslint-disable-next-line no-use-before-define
     editTask();
   }
 };
