@@ -1,21 +1,21 @@
-//Arrange
+// Arrange
 let taskArray = [
   {
     id: 1,
-    description: "Do laundry",
+    description: 'Do laundry',
     completed: false,
   },
   {
     id: 2,
-    description: "Read a book",
+    description: 'Read a book',
     completed: true,
-  }
+  },
 ];
 
-let task1 = 'hola mundillo';
-let task2 = 'tengo hambre';
+const task1 = 'hola mundillo';
+const task2 = 'tengo hambre';
 
-//edit
+// edit
 const editElement = () => {
   taskArray[0].description = task1;
   taskArray[1].description = task2;
@@ -48,4 +48,6 @@ const deleteAll = () => {
   taskArray = taskArray.filter((t) => !t.completed);
 };
 
-export { taskArray, editElement, Status, deleteAll };
+export {
+  taskArray, editElement, Status, deleteAll,
+};
