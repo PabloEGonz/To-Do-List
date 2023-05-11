@@ -1,4 +1,18 @@
-const tasks = ['first', 'second', 'third'];
+const tasks = [{
+  description: 'Do laundry',
+  completed: false,
+  id: 1,
+},
+{
+  description: 'buy groceries',
+  completed: false,
+  id: 2,
+},
+{
+  description: 'Do homework',
+  completed: false,
+  id: 3,
+}];
 
 const addList = () => {
   const newTask = {
