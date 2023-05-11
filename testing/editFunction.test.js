@@ -1,10 +1,4 @@
-import { editElemente } from "./editFunction";
-
-const MockHtml= "";
-MockHtml.innerHTML `
-<label>
-<input value="${}">
-<label> `; 
+import { editElemente, taskArray } from "./editFunction";
 
 function createLocalStorageMock() {
     let store = [];
@@ -26,21 +20,20 @@ function createLocalStorageMock() {
   const localStorageMock = createLocalStorageMock();
   global.localStorage = localStorageMock;
 
-describe ((editElemente) =>{
+describe ('edit original description', () =>{
 
     test('Testing is original input of description was edit correctly', () =>{
         //arrange
-        document.body.innerHTML =
-        '<div>' +
-        '  <input id="username" value="hello world!"/>' +
-        '  <button id="button" />' +
-        '</div>';
+        const editTask = ['Prueba nombre', 'Soy malo con nombres'];
+
+        //act 
         
-        const value1 = "Hello world!";
+        
+    
 
-
-
-
+        //assest
+        expect(task[0].description).toBe("hola planet");
+        expect(task[1].description).toBe("hello planeta");
     })
 
 })

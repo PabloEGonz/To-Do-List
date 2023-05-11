@@ -1,12 +1,26 @@
-//edit
-const editElemente = (i) => {
-    // const editInput  document.querySelector('#edit-input');
-    let edit = value1;
-      createLocalStorageMock();
-    });
-  };
+const taskArray = [
+    {
+    id: 1,
+    description: "hello mundo",
+    completed: false,
+    },
+    {
+    id: 2,
+    description: "hola world",
+    completed: false,
+    }
+];
 
-  export { editElemente };
+
+//edit
+const editElemente = () => {
+    // const editInput  document.querySelector('#edit-input');
+    taskArray[i].description = '';
+      createLocalStorageMock();
+    };
+
+
+  export { editElemente, taskArray };
 
 // // boolean change
 

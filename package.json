@@ -4,7 +4,7 @@
   "description": "This project is a web application that allows you to add a task and mark the task as completed and delete it.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack"
   },
