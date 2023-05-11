@@ -23,17 +23,13 @@ function createLocalStorageMock() {
 describe ('edit original description', () =>{
 
     test('Testing is original input of description was edit correctly', () =>{
-        //arrange
-        const editTask = ['Prueba nombre', 'Soy malo con nombres'];
-
+        
         //act 
-        
-        
-    
+        editElemente();
 
         //assest
-        expect(task[0].description).toBe("hola planet");
-        expect(task[1].description).toBe("hello planeta");
+        expect(taskArray[0].description).toBe("hola mundillo");
+        expect(taskArray[1].description).toBe("tengo hambre");
     })
 
 })

@@ -1,3 +1,4 @@
+//Arrange
 const taskArray = [
     {
     id: 1,
@@ -11,14 +12,15 @@ const taskArray = [
     }
 ];
 
+let obj1 = 'hola mundillo';
+let obj2 = 'tengo hambre'; 
 
 //edit
 const editElemente = () => {
-    // const editInput  document.querySelector('#edit-input');
-    taskArray[i].description = '';
-      createLocalStorageMock();
+    taskArray[0].description = obj1;
+    taskArray[1].description = obj2;    
+    //   createLocalStorageMock();
     };
-
 
   export { editElemente, taskArray };
 
