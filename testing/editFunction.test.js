@@ -1,6 +1,4 @@
-import {
-  editElement, taskArray, Status, deleteAll,
-} from './editFunction.js';
+import { editElement, taskArray, Status, deleteAll } from "./editFunction";
 
 function createLocalStorageMock() {
   let store = [];
@@ -23,17 +21,20 @@ const localStorageMock = createLocalStorageMock();
 global.localStorage = localStorageMock;
 
 describe('edit original description', () => {
+
   test('Testing is original input of description was edit correctly', () => {
-    // act
+
+    //act 
     editElement();
 
-    // assest
-    expect(taskArray[0].description).toBe('hola mundillo');
-    expect(taskArray[1].description).toBe('tengo hambre');
+    //assest
+    expect(taskArray[0].description).toBe("Wash the dishes");
+    expect(taskArray[1].description).toBe("Buy groceries");
   });
 
   test('change status of completed key from false to true or backwards', () => {
-    // arrange
+
+    //arrange
     const checkStatus = new Status(taskArray[0].completed);
     const checkStatus1 = new Status(taskArray[1].completed);
 
@@ -41,7 +42,7 @@ describe('edit original description', () => {
     taskArray[0].completed = checkStatus.on();
     taskArray[1].completed = checkStatus1.off();
 
-    // assest
+    //assest
     expect(taskArray[0].completed).toBeTruthy();
     expect(taskArray[1].completed).toBeFalsy();
   });
@@ -53,6 +54,7 @@ describe('edit original description', () => {
       id: 1,
       description: "Do laundry",
       completed: true,
-    }`);
-  });
+    }`)
+  })
+
 });

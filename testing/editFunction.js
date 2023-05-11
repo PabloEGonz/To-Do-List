@@ -12,8 +12,8 @@ let taskArray = [
   },
 ];
 
-const task1 = 'hola mundillo';
-const task2 = 'tengo hambre';
+const task1 = 'Wash the dishes';
+const task2 = 'Buy groceries';
 
 // edit
 const editElement = () => {
