@@ -35,7 +35,7 @@ const taskDescription = document.getElementsByClassName('task-description');
 const listElem = document.getElementsByClassName('list');
 const checked = document.getElementsByClassName('checkbox');
 
-const onTaskDescriptionClick = (i) => {
+const editElemente = (i) => {
   taskDescription[i].innerHTML = `<input class="add" id="edit-input" type="text" value="${tasks[i].description}"></input>`;
   optionBtn[i].src = trashIcon;
   listElem[i].classList.add('edit');
@@ -77,7 +77,7 @@ const deleteItem = (i) => {
 
 const editTask = () => {
   Array.from(optionBtn).forEach((btn, i) => {
-    taskDescription[i].addEventListener('click', () => onTaskDescriptionClick(i));
+    taskDescription[i].addEventListener('click', () => editElemente(i));
     checked[i].addEventListener('click', () => onCheckedClick(i));
     btn.addEventListener('click', () => deleteItem(i));
   });
