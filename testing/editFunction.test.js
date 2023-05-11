@@ -1,4 +1,4 @@
-import { editElemente, taskArray } from "./editFunction";
+import { editElemente, taskArray, Status } from "./editFunction";
 
 function createLocalStorageMock() {
     let store = [];
@@ -30,6 +30,21 @@ describe ('edit original description', () =>{
         //assest
         expect(taskArray[0].description).toBe("hola mundillo");
         expect(taskArray[1].description).toBe("tengo hambre");
-    })
+    });
 
-})
+    test('change status of completed key from false to true or backwards', () =>{
+
+        //arrange
+        const checkStatus = new Status(taskArray[0].completed);
+        const checkStatus1 = new Status(taskArray[1].completed);
+
+        // act
+            taskArray[0].completed = checkStatus.on();
+            taskArray[1].completed = checkStatus1.off();
+   
+        //assest
+          expect(taskArray[0].completed).toBeTruthy();
+          expect(taskArray[1].completed).toBeFalsy();
+    });
+
+});
