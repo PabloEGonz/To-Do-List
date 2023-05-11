@@ -1,58 +1,51 @@
 //Arrange
-const taskArray = [
-    {
+let taskArray = [
+  {
     id: 1,
-    description: "hello mundo",
+    description: "Do laundry",
     completed: false,
-    },
-    {
+  },
+  {
     id: 2,
-    description: "hola world",
+    description: "Read a book",
     completed: true,
-    }
+  }
 ];
 
-let obj1 = 'hola mundillo';
-let obj2 = 'tengo hambre'; 
+let task1 = 'hola mundillo';
+let task2 = 'tengo hambre';
 
 //edit
-const editElemente = () => {
-    taskArray[0].description = obj1;
-    taskArray[1].description = obj2;    
-    localStorage.setItem('tasks', JSON.stringify(taskArray));
-    };
+const editElement = () => {
+  taskArray[0].description = task1;
+  taskArray[1].description = task2;
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+};
 
 // boolean change
-
 class Status {
-    constructor(state = false) {
-      this.state = state;
-    }
-  
-    current() {
-      return this.state;
-    }
-  
-    on() {
-      this.state = true;
-      return this.state;
-    }
-  
-    off() {
-      this.state = false;
-      return this.state;
-    }
+  constructor(state = false) {
+    this.state = state;
   }
 
-  export { taskArray, editElemente , Status };
+  current() {
+    return this.state;
+  }
 
-// // delete complete task
+  on() {
+    this.state = true;
+    return this.state;
+  }
 
-// const deleteAll = () => {
-//     removeBtn.addEventListener('click', () => {
-//       tasks = tasks.filter((t) => !t.completed);
-//       displayList();
-//       setLocalStorage();
-//       editTask();
-//     });
-//   };
+  off() {
+    this.state = false;
+    return this.state;
+  }
+}
+
+// delete complete task
+const deleteAll = () => {
+  taskArray = taskArray.filter((t) => !t.completed);
+};
+
+export { taskArray, editElement, Status, deleteAll };
