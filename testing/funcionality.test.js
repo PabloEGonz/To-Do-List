@@ -39,9 +39,9 @@ describe('delete', () => {
   test('check element was removed', () => {
     deleteItem(0);
     expect(tasks).not.toContain(`{
-      description: 'Do laundry',
-      completed: false,
-      id: 1,
+      id: 2,
+      description: "Read a book",
+      completed: true,
     }`);
   });
 });
